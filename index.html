@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Weather Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <h1>WeatherSphere</h1>
+                </div>
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Search city...">
+                        <button id="search-btn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="location-btn" class="location-btn" title="Use current location">
+                        <i class="fas fa-location-crosshairs"></i>
+                    </button>
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Current Weather Section -->
+            <section class="current-weather">
+                <div class="weather-card">
+                    <div class="location-info">
+                        <h2 id="city-name">Loading...</h2>
+                        <p id="country-name">-</p>
+                        <p id="last-updated">Last updated: --</p>
+                    </div>
+                    <div class="weather-main">
+                        <div class="temperature">
+                            <span id="temp-value">--</span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="weather-icon">
+                            <img id="weather-icon" src="" alt="Weather icon">
+                        </div>
+                        <div class="weather-description">
+                            <span id="weather-desc">--</span>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="fas fa-eye"></i>
+                            <span>Visibility</span>
+                            <span id="visibility">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-wind"></i>
+                            <span>Wind</span>
+                            <span id="wind-speed">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <span>Feels like</span>
+                            <span id="feels-like">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-tint"></i>
+                            <span>Humidity</span>
+                            <span id="humidity">--</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5-Day Forecast -->
+            <section class="forecast-section">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-container" id="forecast-container">
+                    <!-- Forecast cards will be generated here -->
+                </div>
+            </section>
+
+            <!-- Hourly Forecast -->
+            <section class="hourly-forecast">
+                <h3>Hourly Forecast</h3>
+                <div class="hourly-container" id="hourly-container">
+                    <!-- Hourly cards will be generated here -->
+                </div>
+            </section>
+
+            <!-- Favorite Cities -->
+            <section class="favorites-section">
+                <div class="section-header">
+                    <h3>Saved Locations</h3>
+                    <button id="clear-favorites" class="clear-btn">Clear All</button>
+                </div>
+                <div class="favorites-container" id="favorites-container">
+                    <!-- Favorite cities will be generated here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="error-message">
+            <div class="error-content">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Oops! Something went wrong</h3>
+                <p id="error-text">Unable to fetch weather data. Please try again.</p>
+                <button id="retry-btn" class="retry-btn">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
